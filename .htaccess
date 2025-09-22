@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteBase /asma-agent/
+
+# Handle client-side routing - redirect all requests to index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /asma-agent/index.html [L]
+
+# Set correct MIME types
+<IfModule mod_mime.c>
+    AddType application/javascript .js
+    AddType text/css .css
+</IfModule>
